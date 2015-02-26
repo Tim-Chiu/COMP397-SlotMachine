@@ -57,6 +57,22 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\images\background.png" />
+    <Content Include="assets\images\banana.png" />
+    <Content Include="assets\images\bar.png" />
+    <Content Include="assets\images\bell.png" />
+    <Content Include="assets\images\betMaxButton.png" />
+    <Content Include="assets\images\betOneButton.png" />
+    <Content Include="assets\images\blank.png" />
+    <Content Include="assets\images\button.png" />
+    <Content Include="assets\images\cherry.png" />
+    <Content Include="assets\images\grapes.png" />
+    <Content Include="assets\images\labelBox.png" />
+    <Content Include="assets\images\orange.png" />
+    <Content Include="assets\images\powerButton.png" />
+    <Content Include="assets\images\resetButton.png" />
+    <Content Include="assets\images\seven.png" />
+    <Content Include="assets\images\spinButton.png" />
     <Content Include="css\game.css" />
     <Content Include="css\images\background.png" />
     <Content Include="css\images\banana.png" />
@@ -101,7 +117,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="assets\" />
+    <Folder Include="assets\audio\" />
+    <Folder Include="assets\fonts\" />
     <Folder Include="css\audio\" />
     <Folder Include="css\fonts\" />
   </ItemGroup>
