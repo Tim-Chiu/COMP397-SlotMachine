@@ -1,0 +1,5 @@
+C:\Users\Tim Chiu\Desktop\COMP397-SlotMachine\COMP397-SlotMachine\bin\COMP397-SlotMachine.dll
+C:\Users\Tim Chiu\Desktop\COMP397-SlotMachine\COMP397-SlotMachine\bin\COMP397-SlotMachine.pdb
+C:\Users\Tim Chiu\Desktop\COMP397-SlotMachine\COMP397-SlotMachine\obj\Debug\COMP397-SlotMachine.csprojResolveAssemblyReference.cache
+C:\Users\Tim Chiu\Desktop\COMP397-SlotMachine\COMP397-SlotMachine\obj\Debug\COMP397-SlotMachine.dll
+C:\Users\Tim Chiu\Desktop\COMP397-SlotMachine\COMP397-SlotMachine\obj\Debug\COMP397-SlotMachine.pdb
