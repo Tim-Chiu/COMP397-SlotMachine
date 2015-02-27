@@ -58,7 +58,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\images\background.png" />
-    <Content Include="assets\images\banana.png" />
     <Content Include="assets\images\bar.png" />
     <Content Include="assets\images\bell.png" />
     <Content Include="assets\images\betMaxButton.png" />
@@ -68,6 +67,8 @@
     <Content Include="assets\images\cherry.png" />
     <Content Include="assets\images\grapes.png" />
     <Content Include="assets\images\labelBox.png" />
+    <Content Include="assets\images\lemon.png" />
+    <Content Include="assets\images\melon.png" />
     <Content Include="assets\images\orange.png" />
     <Content Include="assets\images\powerButton.png" />
     <Content Include="assets\images\resetButton.png" />

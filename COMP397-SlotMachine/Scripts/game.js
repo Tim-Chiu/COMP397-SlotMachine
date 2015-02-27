@@ -1,4 +1,9 @@
-﻿// CreateJS Boilerplate for COMP397
+﻿
+//Source File Name: game.js
+//Author/Deveoloper: Tim Chiu - 300652823
+//Last Modified by: Tim Chiu
+//Date Last Motified: 27/2/15
+
 var Button = (function () {
     function Button(path, x, y) {
         this._x = x;
@@ -10,7 +15,8 @@ var Button = (function () {
         this._image.addEventListener("mouseover", this._buttonOver);
         this._image.addEventListener("mouseout", this._buttonOut);
     }
-    // PUBLIC PROPERTIES
+
+    // Public Properties
     Button.prototype.setX = function (x) {
         this._x = x;
     };
@@ -31,7 +37,7 @@ var Button = (function () {
         return this._image;
     };
 
-    // PRIVATE EVENT HANDLERS
+    // Private Event Handlers
     Button.prototype._buttonOut = function (event) {
         event.currentTarget.alpha = 1; // 100% Alpha
     };
@@ -54,7 +60,7 @@ var NUM_REELS = 3;
 // GAME VARIABLES
 var playerMoney = 1000;
 var winnings = 0;
-var jackpot = 5000;
+var jackpot = 9999; //
 var turn = 0;
 var playerBet = 0;
 var winNumber = 0;
@@ -65,7 +71,7 @@ var winRatio = 0;
 
 /* Tally Variables */
 var grapes = 0;
-var bananas = 0;
+var lemons = 0;
 var oranges = 0;
 var cherries = 0;
 var bars = 0;
@@ -102,7 +108,7 @@ function gameLoop() {
 /* Utility function to reset all fruit tallies */
 function resetFruitTally() {
     grapes = 0;
-    bananas = 0;
+    lemons = 0;
     oranges = 0;
     cherries = 0;
     bars = 0;
@@ -151,7 +157,7 @@ function Reels() {
                 break;
             case checkRange(outCome[spin], 38, 46):
                 betLine[spin] = "banana";
-                bananas++;
+                lemons++;
                 break;
             case checkRange(outCome[spin], 47, 54):
                 betLine[spin] = "orange";
@@ -183,7 +189,7 @@ function determineWinnings() {
     if (blanks == 0) {
         if (grapes == 3) {
             winnings = playerBet * 10;
-        } else if (bananas == 3) {
+        } else if (lemons == 3) {
             winnings = playerBet * 20;
         } else if (oranges == 3) {
             winnings = playerBet * 30;
@@ -197,7 +203,7 @@ function determineWinnings() {
             winnings = playerBet * 100;
         } else if (grapes == 2) {
             winnings = playerBet * 2;
-        } else if (bananas == 2) {
+        } else if (lemons == 2) {
             winnings = playerBet * 2;
         } else if (oranges == 2) {
             winnings = playerBet * 3;
@@ -244,12 +250,12 @@ function createUI() {
         reelContainers[index] = new createjs.Container();
         game.addChild(reelContainers[index]);
     }
-    reelContainers[0].x = 128;
-    reelContainers[0].y = 296;
-    reelContainers[1].x = 248;
-    reelContainers[1].y = 296;
-    reelContainers[2].x = 374;
-    reelContainers[2].y = 296;
+    reelContainers[0].x = 105;
+    reelContainers[0].y = 290;
+    reelContainers[1].x = 245;
+    reelContainers[1].y = 290;
+    reelContainers[2].x = 385;
+    reelContainers[2].y = 290;
 
     // Spin Button
     spinButton = new Button("assets/images/spinButton.png", 410, 545);
