@@ -96,6 +96,7 @@
     <Content Include="Scripts\lib\createjs-lib.d.ts" />
     <Content Include="Scripts\lib\easeljs-0.8.0.min.js" />
     <Content Include="Scripts\lib\easeljs.d.ts" />
+    <Content Include="Scripts\lib\JavaScript1.js" />
     <Content Include="Scripts\lib\preloadjs-0.6.0.min.js" />
     <Content Include="Scripts\lib\preloadjs.d.ts" />
     <Content Include="Scripts\lib\soundjs-0.6.0.min.js" />

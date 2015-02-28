@@ -1,5 +1,4 @@
-﻿
-//Source File Name: game.js
+﻿//Source File Name: game.js
 //Author/Deveoloper: Tim Chiu - 300652823
 //Last Modified by: Tim Chiu
 //Date Last Motified: 27/2/15
@@ -48,28 +47,25 @@ var Button = (function () {
     return Button;
 })();
 
-// VARIABLES ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Variables
 var canvas;
 var stage;
-var tiles = [];
-var reelContainers = [];
 
-// GAME CONSTANTS
+var tiles = [];
+
+var reelContainers = [];
 var NUM_REELS = 3;
 
-// GAME VARIABLES
 var playerMoney = 1000;
 var winnings = 0;
-var jackpot = 9999; //
-var turn = 0;
-var playerBet = 0;
-var winNumber = 0;
-var lossNumber = 0;
+var jackpot = 9999; //Win all the money!
+
+var betAmount = 0;
+
+
 var spinResult;
 var fruits = "";
 var winRatio = 0;
-
-/* Tally Variables */
 var grapes = 0;
 var lemons = 0;
 var oranges = 0;
@@ -78,34 +74,35 @@ var bars = 0;
 var bells = 0;
 var sevens = 0;
 var blanks = 0;
-
-// GAME OBJECTS
 var game;
+
 var background;
 var spinButton;
-var betMaxButton;
-var betOneButton;
+var betTen;
+var betMax;
 var resetButton;
 var powerButton;
+var jackpotText;
+var winningText;
+var betText;
+var moneyText;
 
-// FUNCTIONS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Functions
 function init() {
     canvas = document.getElementById("canvas");
-    stage = new createjs.Stage(canvas); // Parent Object
+    stage = new createjs.Stage(canvas);
     stage.enableMouseOver(20); // Turn on Mouse Over events
-
     createjs.Ticker.setFPS(60); // Set the frame rate to 60 fps
     createjs.Ticker.addEventListener("tick", gameLoop);
-
     main();
 }
 
-// GAMELOOP
+// Gameloop
 function gameLoop() {
     stage.update();
 }
 
-/* Utility function to reset all fruit tallies */
+//Utility function to reset all fruit tallies
 function resetFruitTally() {
     grapes = 0;
     lemons = 0;
@@ -242,6 +239,24 @@ function spinButtonClicked(event) {
     }
 }
 
+function betTen() {
+    if (betAmount + 10 < 50) {
+        Credits -= 10;
+        betAmount += 10;
+        CreditText.text = "Credits: " + Credits.toString();
+        betAmountText.text = "Bet Amount: " + betAmount.toString();
+    }
+}
+
+function betMax() {
+    if (betAmount + 50 <= 50) {
+        Credits -= 50;
+        betAmount += 50;
+        CreditText.text = "Credits: " + Credits.toString();
+        betAmountText.text = "Bet Amount: " + betAmount.toString();
+    }
+}
+
 function createUI() {
     background = new createjs.Bitmap("assets/images/background.png");
     game.addChild(background); // Add the background to the game container
@@ -258,38 +273,70 @@ function createUI() {
     reelContainers[2].y = 290;
 
     // Spin Button
-    spinButton = new Button("assets/images/spinButton.png", 450, 570);
+    spinButton = new Button("assets/images/spinButton.png", 450, 540);
     game.addChild(spinButton.getImage());
 
     // Spin Button Event Listeners
     spinButton.getImage().addEventListener("click", spinButtonClicked);
 
     // Bet Max Button
-    betMaxButton = new Button("assets/images/betMaxButton.png", 300, 570);
+    betMaxButton = new Button("assets/images/betMaxButton.png", 150, 570);
     game.addChild(betMaxButton.getImage());
-    betMaxButton.getImage().addEventListener("click", spinButtonClicked);
+    betMaxButton.getImage().addEventListener("click", betMax);
 
     // Bet One Button
-    betOneButton = new Button("assets/images/betOneButton.png", 200, 570);
-    game.addChild(betOneButton.getImage());
-    betOneButton.getImage().addEventListener("click", spinButtonClicked);
+    betOne = new Button("assets/images/betOneButton.png", 270, 570);
+    game.addChild(betOne.getImage());
+    betOne.getImage().addEventListener("click", betOne);
 
     // Reset Button
     resetButton = new Button("assets/images/resetButton.png", 30, 570);
     game.addChild(resetButton.getImage());
-    resetButton.getImage().addEventListener("click", spinButtonClicked);
+    resetButton.getImage().addEventListener("click", resetButton);
 
-    // Power Button
-    //powerButton = new Button("assets/images/powerButton.png", 55, 560);
-    //game.addChild(powerButton.getImage());
-    //powerButton.getImage().addEventListener("click", spinButtonClicked);
+    // Label 1
+    betTen = new createjs.Bitmap("assets/images/labelBox.png");
+    betTen.x = 30;
+    betTen.y = 520;
+    game.addChild(betTen);
+
+    // Label 2
+    betMax = new createjs.Bitmap("assets/images/labelBox.png");
+    betMax.x = 150;
+    betMax.y = 520;
+    game.addChild(betMax);
+
+    // Label 3
+    betMax = new createjs.Bitmap("assets/images/labelBox.png");
+    betMax.x = 270;
+    betMax.y = 520;
+    game.addChild(betMax);
+
+    //Current Bet Text
+    betText = new createjs.Text("Current Bet: " + betAmount.toString(), "Arial", "#FFFFFF");
+    betText.x = 40;
+    betText.y = 530;
+    game.addChild(betText);
+
+    //Money Text
+    moneyText = new createjs.Text("Money Left: " + playerMoney.toString(), "Arial", "#FFFFFF");
+    moneyText.x = 160;
+    moneyText.y = 530;
+    game.addChild(moneyText);
+
+    //Winnding text
+    winningText = new createjs.Text("Winnings: " + winnings.toString(), "Arial", "#FFFFFF");
+    winningText.x = 280;
+    winningText.y = 530;
+    game.addChild(winningText);
+
+
 }
 
 function main() {
     game = new createjs.Container(); // Instantiates the Game Container
 
-    createUI();
+    createUI(); //Creates User Interface
 
     stage.addChild(game); // Adds the Game Container to the Stage
 }
-//# sourceMappingURL=game.js.map
