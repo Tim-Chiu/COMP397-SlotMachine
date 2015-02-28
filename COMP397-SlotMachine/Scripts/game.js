@@ -258,31 +258,31 @@ function createUI() {
     reelContainers[2].y = 290;
 
     // Spin Button
-    spinButton = new Button("assets/images/spinButton.png", 410, 545);
+    spinButton = new Button("assets/images/spinButton.png", 450, 570);
     game.addChild(spinButton.getImage());
 
     // Spin Button Event Listeners
     spinButton.getImage().addEventListener("click", spinButtonClicked);
 
     // Bet Max Button
-    betMaxButton = new Button("assets/images/betMaxButton.png", 325, 560);
+    betMaxButton = new Button("assets/images/betMaxButton.png", 300, 570);
     game.addChild(betMaxButton.getImage());
     betMaxButton.getImage().addEventListener("click", spinButtonClicked);
 
     // Bet One Button
-    betOneButton = new Button("assets/images/betOneButton.png", 235, 560);
+    betOneButton = new Button("assets/images/betOneButton.png", 200, 570);
     game.addChild(betOneButton.getImage());
     betOneButton.getImage().addEventListener("click", spinButtonClicked);
 
     // Reset Button
-    resetButton = new Button("assets/images/resetButton.png", 150, 560);
+    resetButton = new Button("assets/images/resetButton.png", 30, 570);
     game.addChild(resetButton.getImage());
     resetButton.getImage().addEventListener("click", spinButtonClicked);
 
     // Power Button
-    powerButton = new Button("assets/images/powerButton.png", 55, 560);
-    game.addChild(powerButton.getImage());
-    powerButton.getImage().addEventListener("click", spinButtonClicked);
+    //powerButton = new Button("assets/images/powerButton.png", 55, 560);
+    //game.addChild(powerButton.getImage());
+    //powerButton.getImage().addEventListener("click", spinButtonClicked);
 }
 
 function main() {
