@@ -92,9 +92,7 @@ function ResetButton() {
     game.removeChild(reelTwo);
     game.removeChild(reelThree);
 }
-function powerButton() {
-    window.location = "http://www.google.ca";
-}
+
 function checkSpin(spotOne, spotTwo, SpotThree) {
     spins++;
     jackpot = jackpot + betAmount;
@@ -395,42 +393,29 @@ function createUI() {
     spinButton.x = 345;
     spinButton.y = 410;
     game.addChild(spinButton);
-    powerBtn = new createjs.Bitmap("assets/images/power.png");
-    powerBtn.x = 150;
-    powerBtn.y = 390;
+
     game.addChild(powerBtn);
     CreditText = new createjs.Text("Credits: " + Credits.toString(), "Arial", "#FFFFFF");
     CreditText.x = 30;
     CreditText.y = 410;
     game.addChild(CreditText);
+
     betAmountText = new createjs.Text("Bet Amount: " + betAmount.toString(), "Arial", "#FFFFFF");
     betAmountText.x = 30;
     betAmountText.y = 430;
     game.addChild(betAmountText);
+
     winningText = new createjs.Text("Winnings: " + winnings.toString(), "Arial", "#FFFFFF");
     winningText.x = 30;
     winningText.y = 450;
     game.addChild(winningText);
+
     JackpotText = new createjs.Text("JackPot: " + jackpot.toString(), "Arial", "#000000");
     JackpotText.x = 175;
     JackpotText.y = 138;
     game.addChild(JackpotText);
-    BetOne = new createjs.Bitmap("assets/images/BetOneButton.png");
-    BetOne.x = 290;
-    BetOne.y = 400;
-    game.addChild(BetOne);
-    BetTen = new createjs.Bitmap("assets/images/BetTenButton.png");
-    BetTen.x = 290;
-    BetTen.y = 440;
-    game.addChild(BetTen);
-    BetMax = new createjs.Bitmap("assets/images/BetMaxButton.png");
-    BetMax.x = 250;
-    BetMax.y = 400;
-    game.addChild(BetMax);
-    Reset = new createjs.Bitmap("assets/images/ResetButton.png");
-    Reset.x = 250;
-    Reset.y = 440;
-    game.addChild(Reset);
+
+
     BetMax.addEventListener("click", MaxOut);
     BetOne.addEventListener("click", BetOnce);
     BetTen.addEventListener("click", BetTenfold);

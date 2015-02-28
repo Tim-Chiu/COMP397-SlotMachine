@@ -64,6 +64,7 @@
     <Content Include="assets\images\betOneButton.png" />
     <Content Include="assets\images\blank.png" />
     <Content Include="assets\images\cherry.png" />
+    <Content Include="assets\images\betTenButton.png" />
     <Content Include="assets\images\grapes.png" />
     <Content Include="assets\images\labelBox.png" />
     <Content Include="assets\images\lemon.png" />
@@ -73,23 +74,23 @@
     <Content Include="assets\images\resetButton.png" />
     <Content Include="assets\images\seven.png" />
     <Content Include="assets\images\spinButton.png" />
-    <Content Include="css\game.css" />
-    <Content Include="css\images\background.png" />
-    <Content Include="css\images\banana.png" />
-    <Content Include="css\images\bar.png" />
-    <Content Include="css\images\bell.png" />
-    <Content Include="css\images\betMaxButton.png" />
-    <Content Include="css\images\betOneButton.png" />
-    <Content Include="css\images\blank.png" />
-    <Content Include="css\images\button.png" />
-    <Content Include="css\images\cherry.png" />
-    <Content Include="css\images\grapes.png" />
-    <Content Include="css\images\labelBox.png" />
-    <Content Include="css\images\orange.png" />
-    <Content Include="css\images\powerButton.png" />
-    <Content Include="css\images\resetButton.png" />
-    <Content Include="css\images\seven.png" />
-    <Content Include="css\images\spinButton.png" />
+    <Content Include="assets\images\css\game.css" />
+    <Content Include="assets\images\css\images\background.png" />
+    <Content Include="assets\images\css\images\banana.png" />
+    <Content Include="assets\images\css\images\bar.png" />
+    <Content Include="assets\images\css\images\bell.png" />
+    <Content Include="assets\images\css\images\betMaxButton.png" />
+    <Content Include="assets\images\css\images\betOneButton.png" />
+    <Content Include="assets\images\css\images\blank.png" />
+    <Content Include="assets\images\css\images\button.png" />
+    <Content Include="assets\images\css\images\cherry.png" />
+    <Content Include="assets\images\css\images\grapes.png" />
+    <Content Include="assets\images\css\images\labelBox.png" />
+    <Content Include="assets\images\css\images\orange.png" />
+    <Content Include="assets\images\css\images\powerButton.png" />
+    <Content Include="assets\images\css\images\resetButton.png" />
+    <Content Include="assets\images\css\images\seven.png" />
+    <Content Include="assets\images\css\images\spinButton.png" />
     <Content Include="index.html" />
     <Content Include="Scripts\game.js" />
     <Content Include="Scripts\game.ts" />
@@ -120,8 +121,8 @@
   <ItemGroup>
     <Folder Include="assets\audio\" />
     <Folder Include="assets\fonts\" />
-    <Folder Include="css\audio\" />
-    <Folder Include="css\fonts\" />
+    <Folder Include="assets\images\css\audio\" />
+    <Folder Include="assets\images\css\fonts\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

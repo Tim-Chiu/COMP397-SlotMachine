@@ -115,12 +115,12 @@ function resetFruitTally() {
 }
 
 /* Utility function to reset the player stats */
-function resetAll() {
+function resetButton() {
     playerMoney = 1000;
     winnings = 0;
     jackpot = 5000;
     turn = 0;
-    playerBet = 0;
+    playerMoney = 0;
     winNumber = 0;
     lossNumber = 0;
     winRatio = 0;
@@ -185,75 +185,78 @@ function Reels() {
 function determineWinnings() {
     if (blanks == 0) {
         if (grapes == 3) {
-            winnings = playerBet * 10;
+            winnings = betAmount * 10;
         } else if (lemons == 3) {
-            winnings = playerBet * 20;
+            winnings = betAmount * 20;
         } else if (oranges == 3) {
-            winnings = playerBet * 30;
+            winnings = betAmount * 30;
         } else if (cherries == 3) {
-            winnings = playerBet * 40;
+            winnings = betAmount * 40;
         } else if (bars == 3) {
-            winnings = playerBet * 50;
+            winnings = betAmount * 50;
         } else if (bells == 3) {
-            winnings = playerBet * 75;
+            winnings = betAmount * 75;
         } else if (sevens == 3) {
-            winnings = playerBet * 100;
+            winnings = betAmount * 100;
         } else if (grapes == 2) {
-            winnings = playerBet * 2;
+            winnings = betAmount * 2;
         } else if (lemons == 2) {
-            winnings = playerBet * 2;
+            winnings = betAmount * 2;
         } else if (oranges == 2) {
-            winnings = playerBet * 3;
+            winnings = betAmount * 3;
         } else if (cherries == 2) {
-            winnings = playerBet * 4;
+            winnings = betAmount * 4;
         } else if (bars == 2) {
-            winnings = playerBet * 5;
+            winnings = betAmount * 5;
         } else if (bells == 2) {
-            winnings = playerBet * 10;
+            winnings = betAmount * 10;
         } else if (sevens == 2) {
-            winnings = playerBet * 20;
+            winnings = betAmount * 20;
         } else {
-            winnings = playerBet * 1;
+            winnings = betAmount * 1;
         }
 
         if (sevens == 1) {
-            winnings = playerBet * 5;
+            winnings = betAmount * 5;
         }
         winNumber++;
-        //showWinMessage();
+        winningText.text = "Winnings: " + winnings.toString();
     } else {
         lossNumber++;
-        //showLossMessage();
     }
 }
 
-// MAIN MEAT of my code goes here
-function spinButtonClicked(event) {
-    spinResult = Reels();
-    fruits = spinResult[0] + " - " + spinResult[1] + " - " + spinResult[2];
+function spinButtonClicked() {
+    if (betAmount < 0) {
 
-    for (var index = 0; index < NUM_REELS; index++) {
-        reelContainers[index].removeAllChildren();
-        tiles[index] = new createjs.Bitmap("assets/images/" + spinResult[index] + ".png");
-        reelContainers[index].addChild(tiles[index]);
+    }
+    if (betAmount > 0) {
+        spinResult = Reels();
+        fruits = spinResult[0] + " - " + spinResult[1] + " - " + spinResult[2];
+
+        for (var index = 0; index < NUM_REELS; index++) {
+            reelContainers[index].removeAllChildren();
+            tiles[index] = new createjs.Bitmap("assets/images/" + spinResult[index] + ".png");
+            reelContainers[index].addChild(tiles[index]);
+        }
     }
 }
 
 function betTen() {
     if (betAmount + 10 < 50) {
-        Credits -= 10;
+        playerMoney -= 10;
         betAmount += 10;
-        CreditText.text = "Credits: " + Credits.toString();
-        betAmountText.text = "Bet Amount: " + betAmount.toString();
+        moneyText.text = "Money Left: " + playerMoney.toString();
+        betAmountText.text = "Current Bet: " + betAmount.toString();
     }
 }
 
 function betMax() {
-    if (betAmount + 50 <= 50) {
-        Credits -= 50;
-        betAmount += 50;
-        CreditText.text = "Credits: " + Credits.toString();
-        betAmountText.text = "Bet Amount: " + betAmount.toString();
+    if (betAmount + 100 <= 100) {
+        playerMoney -= 100;
+        betAmount += 100;
+        moneyText.text = "Money Left: " + playerMoney.toString();
+        betText.text = "Current Bet: " + betAmount.toString();
     }
 }
 
@@ -279,15 +282,15 @@ function createUI() {
     // Spin Button Event Listeners
     spinButton.getImage().addEventListener("click", spinButtonClicked);
 
+    // Bet Ten Button
+    betTen = new Button("assets/images/betTenButton.png", 270, 570);
+    game.addChild(betTen.getImage());
+    betTen.getImage().addEventListener("click", betTen);
+
     // Bet Max Button
     betMaxButton = new Button("assets/images/betMaxButton.png", 150, 570);
     game.addChild(betMaxButton.getImage());
     betMaxButton.getImage().addEventListener("click", betMax);
-
-    // Bet One Button
-    betOne = new Button("assets/images/betOneButton.png", 270, 570);
-    game.addChild(betOne.getImage());
-    betOne.getImage().addEventListener("click", betOne);
 
     // Reset Button
     resetButton = new Button("assets/images/resetButton.png", 30, 570);
@@ -324,13 +327,11 @@ function createUI() {
     moneyText.y = 530;
     game.addChild(moneyText);
 
-    //Winnding text
+    //Winning text
     winningText = new createjs.Text("Winnings: " + winnings.toString(), "Arial", "#FFFFFF");
     winningText.x = 280;
     winningText.y = 530;
     game.addChild(winningText);
-
-
 }
 
 function main() {
